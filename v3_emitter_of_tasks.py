@@ -4,12 +4,16 @@
 
     Author: Denise Case
     Date: January 15, 2023
-
+Name:  Loni Wood
+Date:  January 28, 2023
 """
 
 import pika
 import sys
 import webbrowser
+import csv
+import time
+import socket
 
 def offer_rabbitmq_admin_site():
     """Offer to open the RabbitMQ Admin website"""
@@ -52,6 +56,44 @@ def send_message(host: str, queue_name: str, message: str):
         # close the connection to the server
         conn.close()
 
+host = "localhost"
+port = 9999
+address_tuple = (host, port)
+
+# use an enumerated type to set the address family to (IPV4) for internet
+socket_family = socket.AF_INET 
+
+# use an enumerated type to set the socket type to UDP (datagram)
+socket_type = socket.SOCK_DGRAM 
+
+# use the socket constructor to create a socket object we'll call sock
+sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM) 
+
+# read from a file to get some fake data
+input_file = open("tasks.csv", "r")
+
+# use the built0in sorted() function to get them in chronological order
+reversed = sorted(input_file)
+
+# create a csv reader for our comma delimited data
+reader = csv.reader(reversed, delimiter=",")
+
+
+for row in reader:
+    input_file.read
+    fstring_message = f"{row}"
+        # prepare a binary (1s and 0s) message to stream
+    MESSAGE = fstring_message.encode()
+
+    # use the socket sendto() method to send the message
+    sock.sendto(MESSAGE, address_tuple)
+    print (f"Sent: {MESSAGE} on port {port}.")
+
+    # sleep for a few seconds
+    time.sleep(1)
+
+
+    
 # Standard Python idiom to indicate main program entry point
 # This allows us to import this module and use its functions
 # without executing the code below.
@@ -63,6 +105,6 @@ if __name__ == "__main__":
     # if no arguments are provided, use the default message
     # use the join method to convert the list of arguments into a string
     # join by the space character inside the quotes
-    message = " ".join(sys.argv[1:]) or "Second task....."
+    message = " ".join(sys.argv[1:]) or "version3_send"
     # send the message to the queue
-    send_message("localhost","task_queue2",message)
+    send_message("localhost","task_queue3",message)

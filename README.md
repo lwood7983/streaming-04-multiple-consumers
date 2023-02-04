@@ -61,14 +61,14 @@ Which worker gets which tasks?
 ## Screenshot
 
 See a running example with at least 3 concurrent process windows here:
-- Version 1 Screenshot
+- Version 1 Emitter Screenshot
+ ![Version1Emitter](v1_emitter_of_tasks_screenshot.png)
 
-![Version1Emitter](v1_emitter_of_tasks_screenshot.png)
-
+- Version 1 Consumer Screenshot
 ![Version1Consumer](v1_listening_worker_screenshot.png)
 
-- Version 2 Screenshot
+- Version 2 Screenshot (Emitter and Two Consumers)
 ![Version2Emitter&TwoConsumers](v2_emitter&two_consumers_screenshot.png)
 
-- Version 3 Screenshot
+- Version 3 Screenshot (Emitter and Two Consumers)
 ![Version3Emitter&TwoConsumers](v3_emitter&two_consumers_screenshot.png)
